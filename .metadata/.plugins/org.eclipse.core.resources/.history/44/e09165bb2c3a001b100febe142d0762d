@@ -1,0 +1,52 @@
+package com.dxc.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dxc.DAO.RequirementRepository;
+import com.dxc.model.Task;
+
+@Service
+public class TaskServiceImp implements TaskService {
+    
+	@Autowired
+	RequirementRepository repository;
+	
+	@Override
+	public List<Task> getAllTasks() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
+	@Override
+	public Task getTaskById(int id) {
+		// TODO Auto-generated method stub
+		Optional<Task> requirement=repository.findById(id);
+		return requirement.get();
+	}
+
+	@Override
+	public Task insertTask(Task t) {
+		// TODO Auto-generated method stub
+		return repository.save(t);
+	}
+
+	@Override
+	public Task updateTask(Task t) {
+		// TODO Auto-generated method stub
+		Optional<Task> req=repository.findById(r.getId());
+		Task task=req.get();
+		task.setStatus(t.getStatus());
+		return repository.save(task);
+	}
+
+	@Override
+	public void deleteTask(int id) {
+		// TODO Auto-generated method stub
+		repository.deleteById(id);
+	}
+
+}

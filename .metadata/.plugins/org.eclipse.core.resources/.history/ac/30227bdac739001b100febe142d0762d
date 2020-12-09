@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package com.dxc.service;
+
+/**
+ * @author lpasupuleti
+ *
+ */
+
+import java.util.List;
+
+import com.dxc.model.Task;
+
+public interface TaskService {
+
+	public List<Task> getAllRequirements();
+
+	public Task getRequirementById(int id);
+
+	public Requirement insertRequirement(Requirement r);
+
+	public Requirement updateRequirement(Requirement r);
+
+	public void deleteRequirement(int id);
+
+}
